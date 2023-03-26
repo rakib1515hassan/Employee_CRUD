@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+<h1 class="text-center my-3">Employee Management</h1>
+<h2 class="text-center my-3">List of Employee</h2>
+
+<style>
+    img{
+     width:80px;
+     hight:100px;
+     border-radius: 100%;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>SNO</th>
+                                <th>Full Name</th>
+                                <th>Gender</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Image</th>
+                                <th>Position</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for e in emp %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{e.full_name}}</td>
+                                    <td>{{e.gender}}</td>
+                                    <td>{{e.email}}</td>
+                                    <td>{{e.hopne}}</td>
+                                    <td>
+                                        <div class="images">
+                                            <img src="{{ e.image.url }}" alt="img">
+                                        </div>
+                                    </td>
+                                    <td>{{e.position}}</td>
+                                    <td>{{e.address}}</td>
+                                    <td>
+                                        <a href="" class="btn btn-danger md-sm">Delete</a>
+                                        <a href="" class="btn btn-success md-sm">Update</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock body %}
